@@ -24,6 +24,19 @@ class Calculator extends Component {
         const newCount = this.state.num1 + this.state.num2;
         this.setState({num3: newCount})
     }
+    
+    subtract = () => {
+        const newCount = this.state.num1 - this.state.num2;
+        this.setState({num3: newCount})
+    }
+
+    clear(e) {
+        this.setState({
+            num1: '',
+            num2: '',
+            num3: '',
+        })
+    }
 
     render() {
         return(
@@ -35,7 +48,9 @@ class Calculator extends Component {
                     <span>+</span>
                     <input type="text" value={this.state.num2} onChange={this.changeInput2}/>
                     <button onClick={this.add}>=</button>
-                    <button>Clear Calculator</button>
+                    <br/>
+                    <br/>
+                    <button onClick={(e) => this.clear(e)}>Clear Calculator</button>
                     <h3>{this.state.num3}</h3>
                 </div>
             </div>
